@@ -8,38 +8,38 @@ pipeline {
 		booleanParam (name: 'execTest', defaultValue: true, description: '')
 	}
 	stages {
-        stage('Init') {
-            steps {
-                script {
+        	stage('Init') {
+            		steps {
+                		script {
 					gv = load"script.groovy"
 				}
-            }
-        }
+            		}
+        	}
 		stage('Build') {
-            steps {
-                script {
+            		steps {
+                		script {
 					gv.built-app()
 				}
-            }
-        }
-        stage('Test') {
+            		}
+        	}
+        	stage('Test') {
 			when {
 				expression {
 					params.execTest == true
 				}
 			}
-            steps {
-                script {
+            		steps {
+                		script {
 					gv.test-app()
 				}
-            }
-        }
-        stage('Deploy') {
-            steps {
-                script {
+            		}
+        	}
+        	stage('Deploy') {
+            		steps {
+                		script {
 					gv.deploy-app()
 				}
-            }
-        }
-    }
-}
+            		}
+		}
+    	}
+}	
