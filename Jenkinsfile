@@ -6,26 +6,26 @@ pipeline {
 		booleanParam (name: 'execTest', defaultValue: true, description: '')
 	}
 	stages {
-        	stage('Build') {
-            		steps {
-                		echo 'Building..'
-            		}
-        	}
-        	stage('Test') {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
 			when {
 				expression {
 					params.execTest == true
 				}
 			}
-			steps {
-             	   		echo 'Testing..'
-			}
-        	}
-        	stage('Deploy') {
-			steps {
-                		echo 'Deploying....'
-                		echo "deploying version ${params.VERSION}"
-            		}
-		}
-	}
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+                echo "deploying version ${params.VERSION}"
+            }
+        }
+    }
 }
