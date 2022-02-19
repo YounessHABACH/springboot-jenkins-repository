@@ -1,12 +1,12 @@
-def built-app(){
+def builtApp(){
 	echo 'building the app - scrip groovy external'
 }
 
-def test-app(){
+def testApp(){
 	echo 'testing the app - scrip groovy external'
 }
 
-def deploy-app(){
+def deployApp(){
 	echo 'deploying the app - scrip groovy external'
 	echo "deploying ${params.VERSION}"
 }
