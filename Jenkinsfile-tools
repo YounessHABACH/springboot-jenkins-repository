@@ -1,0 +1,26 @@
+CODE_CHANGES = getGitChanges()
+pipeline {
+    agent any
+
+    tools{
+		maven "maven-mvn"
+	}
+	stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+				sh "mvn install"
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
