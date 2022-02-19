@@ -1,4 +1,4 @@
-def builtApp(){
+def buildApp(){
 	echo 'building the app - scrip groovy external'
 }
 
